@@ -1,0 +1,171 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+
+    <ion-modal [isOpen]="isModalOpen"  id="example-modal" trigger="open-custom-dialog">
+      <ng-template>
+        <div class="wrapper">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Proposito</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpen(false)">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+          <ion-segment style="text-align: justify; padding: 20px;">
+            <p>
+              Este protecto fue realizado con el objetivo de mostrar mis habilidades tecnicas,
+              no me enfoque en UI ni UX. 
+              aqui les adjunto el codigo Github  
+              <br>
+              <a href="" target="_blank" >click aqui Para ver el codigo</a>
+              <br>
+              <br>
+              <a href="" target="_blank" >te invito a ver mi pagina personal y conocer mas sobre mi</a>
+            </p>
+          </ion-segment>
+        </div>
+      </ng-template>
+    </ion-modal>
+
+      <div class="container-form" >      
+        <form [formGroup]="form" (ngSubmit)="logForm()" style="padding: 15px;">
+          <ion-item>  
+            <ion-grid>      
+                <ion-row>
+                  <ion-label>Correo electronico:</ion-label>
+                </ion-row>
+
+                <ion-row>
+                  <ion-input type="email" formControlName="email"></ion-input>
+                </ion-row>
+              </ion-grid>
+        </ion-item>
+
+        <ion-item class="errors-inputs" *ngIf="form.get('email').errors && form.get('email').dirty && form.get('email').hasError('pattern')">  
+          <ion-label>Debe ser de tipo email</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-grid>      
+            <ion-row>
+              <ion-label>Nombre completo</ion-label>
+            </ion-row>
+            <ion-row>
+              <ion-input simpleMask="aaaaaaa" type="text" formControlName="fullName"></ion-input>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+ 
+        <ion-item class="errors-inputs" *ngIf="form.get('fullName').errors && form.get('fullName').dirty">
+          <ion-label *ngIf="form.get('fullName').hasError('minlength')"> Debe ser mayor a 7 caracteres </ion-label>
+        </ion-item>
+        <!-- <ion-item> -->
+          <ion-list>
+            <ion-item> 
+              <ion-select class="test" interface="action-sheet" placeholder="Venezuela" formControlName="country">
+                
+                <ion-select-option value="apples">Apples</ion-select-option>
+                <ion-select-option value="oranges">Oranges</ion-select-option>
+                <ion-select-option value="bananas">Bananas</ion-select-option>
+                <ion-select-option value="apples">Apples</ion-select-option>
+                <ion-select-option value="oranges">Oranges</ion-select-option>
+                <ion-select-option value="bananas">Bananas</ion-select-option>
+                <ion-select-option value="apples">Apples</ion-select-option>
+                <ion-select-option value="oranges">Oranges</ion-select-option>
+                <ion-select-option value="bananas">Bananas</ion-select-option>
+                <ion-select-option value="apples">Apples</ion-select-option>
+                <ion-select-option value="oranges">Oranges</ion-select-option>
+                <ion-select-option value="bananas">Bananas</ion-select-option>
+                <ion-select-option value="apples">Apples</ion-select-option>
+                <ion-select-option value="oranges">Oranges</ion-select-option>
+                <ion-select-option value="bananas">Bananas</ion-select-option>
+                <ion-select-option value="apples">Apples</ion-select-option>
+                <ion-select-option value="oranges">Oranges</ion-select-option>
+                <ion-select-option value="bananas">Bananas</ion-select-option>
+                <ion-select-option value="apples">Apples</ion-select-option>
+                <ion-select-option value="oranges">Oranges</ion-select-option>
+                <ion-select-option value="bananas">Bananas</ion-select-option>
+                
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        <!-- </ion-item> -->
+
+        <ion-item>
+          <ion-grid>      
+            <ion-row>
+              <ion-label>Contraseña</ion-label>
+            </ion-row>
+
+            <ion-row>
+              <ion-input type="password" formControlName="password" id="password"></ion-input>
+              <ion-buttons (click)="changePasswordVisibility('password', 'password')">
+                <ion-icon *ngIf="showPassword.password==false"  name="eye-outline"  ></ion-icon>
+                <ion-icon *ngIf="showPassword.password"  name="eye-off-outline" ></ion-icon>
+              </ion-buttons>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+        <ion-item class="errors-inputs" *ngIf="form.get('password').errors && form.get('password').dirty">
+          <ion-grid>      
+            <ion-row>
+              <ion-label *ngIf="form.get('password').hasError('length')"> Debe tener entre 8 y 20 caracteres </ion-label>
+            </ion-row>
+
+            <ion-row>
+              <ion-label *ngIf="form.get('password').hasError('signs')"> Debe tener 1 caracter de estos $ % & @ ? * _ | < > #  </ion-label>
+            </ion-row>
+
+            <ion-row>
+              <ion-label *ngIf="form.get('password').hasError('uppercase')"> Debe tener al menos un caracter en mayuscula  </ion-label>
+            </ion-row>
+          </ion-grid>
+          
+        </ion-item>
+
+
+
+        <ion-item>
+          <ion-grid>      
+            <ion-row>
+              <ion-label>Repetir contraseña</ion-label>
+            </ion-row>
+
+            <ion-row>
+              <ion-input type="password" formControlName="password_repeat" id="repeatPassword" ></ion-input>
+              <ion-buttons (click)="changePasswordVisibility('repeatPassword', 'repeatPassword' )">
+                <ion-icon *ngIf="showPassword.repeatPassword==false" name="eye-outline"></ion-icon>
+                <ion-icon *ngIf="showPassword.repeatPassword" name="eye-off-outline"></ion-icon>
+              </ion-buttons>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+
+        <ion-item class="errors-inputs" *ngIf="form.get('password_repeat').errors && form.get('password_repeat').dirty">
+          <ion-label *ngIf="form.get('password_repeat').hasError('notEquals')"> La contraseña debe coincidir  </ion-label>
+        </ion-item>
+
+          <br>
+        
+          <ion-button type="submit" fill="outline" [disabled]="form.invalid" >Submit</ion-button>
+
+
+      </form>
+    </div>
+  </div>
+  
+
+  
+  
+  
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header  class="header" [translucent]="true">
+  <ion-toolbar  class="background-header">
+    <ion-title>
+      Angel Gonzalez 
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar class="toolbar background-header">
+    <ion-segment class="segment" value="all" color="light">
+      <ion-segment-button class="button-segment" (click)="changeColorScheme(false)" id="border-segment" color="light" value="all">
+        <!-- Light -->
+        <ion-icon name="sunny" color="light" class="icon"></ion-icon>
+      </ion-segment-button>
+      
+      <ion-segment-button class="button-segment"  (click)="changeColorScheme(true)" value="favorites">
+        <!-- Dark -->
+        <ion-icon name="moon" color="light" class="icon"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>

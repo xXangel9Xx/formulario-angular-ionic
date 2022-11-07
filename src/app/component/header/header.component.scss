@@ -1,0 +1,35 @@
+.header{
+    display: flex;
+}
+.toolbar{
+    width: 100px;
+}
+.background-header{
+    --background:var(--ion-color-medium) !important;
+
+}
+.segment{
+    border-radius: 30px;
+    min-height: 35px;
+}
+#border-segment{
+    border-right: solid 1px var(--ion-color-light);
+}
+.button-segment{
+    min-width: 50px;
+    height: 35px;
+}
+ion-segment-button::part(indicator){
+    opacity: 0;
+}
+.icon{
+    color: var(--ion-color-light) !important;
+} 
+@media screen and (min-width:500px) {
+    .toolbar{
+        width: 200px;
+    }
+    .button-segment{
+        min-width: 100px;
+    }
+}

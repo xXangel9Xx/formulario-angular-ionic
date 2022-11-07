@@ -1,0 +1,7 @@
+{
+  "name": "formulario-de-registro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
